@@ -2,7 +2,17 @@
 # snake_case -- this is what python programmers use
 import pandas as pd
 
-
+# saturday january 31st
+# How do you fill in the missing dates from the grants data?
+# - You can use the last available date or the date of the proceeding
+# data collected. This could likely be a misrepresentation, though.
+# Multiple observations taken @ the "same time" may rupture the 
+# data.
+# PI_NAMEs contains multiple names. We can only connect individual 
+# people. Can you make it so that we can get "grantees"?
+# - pandas function ... explode()?????
+# can handle them as grantees 1, 2, ... but I don't think that's
+# as clean...? 
 class Grants():  # class names in python are camel case (e.g. GrantReader)
     def __init__(self, path: str):
         """Create and parse a Grants file
