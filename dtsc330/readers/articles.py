@@ -2,6 +2,9 @@ import gzip
 import pandas as pd
 import xml.etree.ElementTree as ET
 
+# saturday january 31st
+# The dates for Articles are problematic. Can you fix them?
+
 
 class Articles():
     def __init__(self, path: str):

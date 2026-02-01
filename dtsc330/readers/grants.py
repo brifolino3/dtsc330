@@ -12,7 +12,10 @@ import pandas as pd
 # people. Can you make it so that we can get "grantees"?
 # - pandas function ... explode()?????
 # can handle them as grantees 1, 2, ... but I don't think that's
-# as clean...? 
+# as clean...? Instead use that function to send
+# the ID number ( assuming the possibility of 
+# a second one in one element ) to the following line.
+
 class Grants():  # class names in python are camel case (e.g. GrantReader)
     def __init__(self, path: str):
         """Create and parse a Grants file
@@ -28,7 +31,7 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
 
     def _parse(self, path: str):
         """Parse a grants file"""
-        df = pd.read_csv(path, compression='zip')
+        df = pd.read_csv(path, compression = 'zip')
         
         mapper = {
             'APPLICATION_ID': 'application_id',  # _id means an id
@@ -43,14 +46,27 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
         }
         # make column names lowercase
         # maybe combine for budget duration?
-        df = df.rename(columns=mapper)[mapper.values()]
+        df = df.rename(columns = mapper)[mapper.values()]
         return df
     
     def get(self):
         """Get parsed grants"""
-        return self.df        
+        return self.df   
+    
+    # this function will take the PI_NAMEs &
+    # ensure that whenever 2 are listed, both names
+    # ( ID #s ) are acknowledged
+    # this will return df with one row per individual
+    def getGrantees(self):
+        df = self.get().copy()
+        df['pi_names'] = df['pi_names'].str.split(';')
+        df = df.explode('pi_names') # explode "Transform each element of a list-like to a row, replicating index values."
+        df['pi_names'] = df['pi_names'].str.strip()
+        return df
 
 
 if __name__ == '__main__':
     # This is for debugging
     grants = Grants('data/RePORTER_PRJ_C_FY2025.zip')
+    grantees = grants.getGrantees()
+    print(grantees.head())
