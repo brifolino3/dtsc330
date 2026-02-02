@@ -62,6 +62,7 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
         df['pi_names'] = df['pi_names'].str.split(';')
         df = df.explode('pi_names') # explode "Transform each element of a list-like to a row, replicating index values."
         df['pi_names'] = df['pi_names'].str.strip()
+        df.reset_index(drop = True)
         return df
     
     # handle the missing dates
