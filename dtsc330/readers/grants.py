@@ -63,6 +63,27 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
         df = df.explode('pi_names') # explode "Transform each element of a list-like to a row, replicating index values."
         df['pi_names'] = df['pi_names'].str.strip()
         return df
+    
+    # handle the missing dates
+    def fillDates(self):
+        df = self.get().copy()
+
+        # make sure the format is correct
+        df['start_at'] = pd.to_datetime(df['start_at'], errors = 'coerce') # missing dates .... Na
+
+        # this will ensure that the dates will not go 
+        # across more than one grant
+        df = df.sort_values(['application_id', 'start_at'])
+
+        # fill in the missing dates from the last entry
+        # if this in unavailable use the following
+        df['start_at'] = (
+            df.groupby('application_id')['start_at']
+            .ffill().bfill())
+        
+        return df
+        
+
 
 
 if __name__ == '__main__':

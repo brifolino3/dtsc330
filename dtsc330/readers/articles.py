@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 # The dates for Articles are problematic. Can you fix them?
 # i cannot get this to open? 
 # make it so it uses the average date between
-# last entry recorded and then the following one
+# last entry recorded and then the following one???
 
 class Articles():
     def __init__(self, path: str):
