@@ -2,12 +2,6 @@ import gzip
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-# saturday january 31st
-# The dates for Articles are problematic. Can you fix them?
-# i cannot get this to open? 
-# make it so it uses the average date between
-# last entry recorded and then the following one???
-
 class Articles():
     def __init__(self, path: str):
         """Read in a pubmed articles XML file that is gzipped
@@ -61,6 +55,16 @@ class Articles():
                 # el.tag is the name of the tag
                 # remember that a tag is combination of a start and end
                 # <el.tag></el.tag>
+            elif el.tag == 'PubDate':
+                for subtag in el:
+                    if subtag.tag == 'Year':
+                        year = subtag.text
+                    elif subtag.tag == 'Month':
+                        month = subtag.text
+                    elif subtag.tag == 'Day':
+                        day = subtag.text
+
+                row['PubDate'] = f'{year}-{month}-{day}'
 
         if 'PMID' not in row.keys():
             return {}, {}

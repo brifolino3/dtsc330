@@ -1,4 +1,4 @@
-"""This is our resuable classifier. A classifier should be able
+"""This is our reusable classifier. A classifier should be able
 to be trained, as well as to able to make predictions. These
 functions share the same data, which suggests we should use:
 """
