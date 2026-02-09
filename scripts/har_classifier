@@ -28,6 +28,7 @@ har_df['acc_z'] = har_df['acc_z'].abs()
 # this will determine how many samples exist for one
 # subject 
 window_size = 50
+window_size2 = 250
 
 # this will help approximate one subject's entire 
 # recording ... which will give us the mean heart rate over
@@ -40,6 +41,8 @@ har_df['rolling_acc_y'] = har_df['acc_y'].rolling(window = window_size).mean()
 har_df['rolling_acc_z'] = har_df['acc_z'].rolling(window = window_size).mean()
 df = har_df[har_df['rolling_hr'].isna() == False]
 
+print('rolling_hr')
+
 # utilize important parts of data frame
 # this will time stamp to about one row per second. 
 # there will not be many changes in less than this
@@ -49,8 +52,8 @@ df = har_df.iloc[::250]
 labels = df['is_sleep']
 features = df.drop(columns = ['rolling_hr', 'rolling_acc_x', 'rolling_acc_y', 'rolling_acc_z', 'rolling_acc_hr_12hr'])
 
-rc = classifier.ReusableClassifier(model_type = 'logistic_regression')
+rc = classifier.ReusableClassifier(model_type = 'random_forest')
 
-print(df[df['person'] == 0.0].head())
+# print(df[df['person'] == 0.0].head())
 # assess ( from classifier file )
 # print(rc.assess(features, labels))
