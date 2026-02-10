@@ -45,10 +45,6 @@ print("Model accuracy:", score)
 
 # lets do it again for 250
 
-# ---------------------------------------------------------
-# SECOND TEST: window size = 250
-# ---------------------------------------------------------
-
 window_size2 = 250
 
 df2 = har_data.df.copy()
