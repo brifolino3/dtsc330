@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Import reusable_classifier and the reader
-from dtsc330 import classifier
+from dtsc330.readers import classifier
 from dtsc330.readers import har
 har.HAR('data/motion-and-heart-rate-from-a-wrist-worn-wearable-and-labeled-sleep-from-polysomnography-1.0.0')
 
