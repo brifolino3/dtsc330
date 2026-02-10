@@ -38,3 +38,25 @@ As before, please add a short description to your README that returns the perfor
 This loads wrist-worn heart rate & accelerometer data
 & prepares it for the task of sleep classification. To find the rolling means for this set, it first converts the raw data into its absolute values to avoid the effects of direction. The rolling means are then computed over their respective fixed windows to approximate the behavior over time. It is downsized to reduce the redundancy, keeping about one observation per second. The sleep labels are separated from its features for the random forest classifier to learn its patterns to distinguish one's
 sleep from wakefulness. 
+
+Homework #4 ( due Feb. 15th )
+
+Add XGBoost to your reusable classifier
+For those who did not structure the assessment to be between people (instead using a simple train_test_split), refactor your code to be between people. You can reference my code.
+Compare the performance of XGBoost with Random Forest and add the difference (one sentence) to your README.md.
+Install fasttext and embed a single word.
+Referencing what we've discussed throughout the course up to this point, create an explanation of machine learning.
+You can eventually adapt this into a Medium or LinkedIn post to help prepare for a job search
+Nothing shows understanding better than teaching
+This should be about one page and must include both a diagram and a description. The weight of one vs the other is up to you. The diagram MUST be your own-- it cannot be taken from the internet. Similarly, I would prefer a wrong answer over one created by a large language model. Think of this as preparation for the Performance Review (Midterm) and Job Interview (Final Exam).
+Must be in the form of a Markdown (.md) file with an imported image
+I would recommend covering the key concepts:
+Features
+Labels
+Classification vs regression
+Parameters
+Black box vs open box
+Different models that we've discussed and how to choose from amongst them
+Data vs features
+Training data requirements
+Anything else that's interesting
