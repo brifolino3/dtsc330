@@ -82,7 +82,14 @@ a set of mathematical instructions that help the maching learn from the provided
  - different types of algorithms have their own respective purposes for specific problems
 
 COMMONLY USED ALGORITHMS
-    statistical models - 
+    statistical models - mathematical equations to model relationships
+
+    decision trees - diagram-like structures
+    feature values
+    best for interpretation
+
+    neural networks - similar to the human brain
+    adjustable weights help them learn patterns
 
 
 COMMON MACHINE LEARNING ISSUES
@@ -116,4 +123,6 @@ choosing factors -
     complexity of data
     accuracy requirements
 
+HOW IT ALL FITS TOGETHER
 
+Together, these pieces form the machine learning process: data -> features, the algorithms adjust parameters to learn these patterns, leaving a model that is to be tested for its generalization accuracy. The goals & complexity does vary, but machine learning ultimately works by taking a clean set of data with a thoughtful model and using the appropriate evaluation tools to turn information into accurate predictions.  
