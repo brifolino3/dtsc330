@@ -62,3 +62,58 @@ Training data requirements
 Anything else that's interesting
 
 The accuracy of XGB took the classifier from 0.9914893617021276 to 0.9942127659574468 accuracy.
+
+Machine learning is the process of teaching a computer how to perform a task without explicitly coding it. This includes feeding data into an algorithm, which helps it to improve its outcomes, although gradually. 
+
+Data is essential to this process... you need to have this raw information, which later will be split into training & testing data. 
+** THIS MUST BE CLEAN DATA, AS THE OUTCOMES WILL BE A REFLECTION OF THE DATA INSERTED **
+
+FEATURES VS. LABELS
+features - raw data turned into measurable inputs, these will help to make the predictions
+labels - the TARGET the model wants to predict
+
+TRAINING VS. TESTING DATA
+training - this portion of the data is utilized to teach the algorithm
+    reducing error here comes from parameters(increase model parameters) 
+testing - a separate portion of data that helps to evaluate how well the model can draw its conclusions
+
+what is an algorithm?
+a set of mathematical instructions that help the maching learn from the provided data
+ - different types of algorithms have their own respective purposes for specific problems
+
+COMMONLY USED ALGORITHMS
+    statistical models - 
+
+
+COMMON MACHINE LEARNING ISSUES
+classification * - predicting categories
+     disease vs. no disease
+    ovulatory vs. anovulatory cycles
+THRESHOLDS can be important here
+
+regression - continuous numerical values
+    inflation
+    weather
+    job / house markets
+
+what is a model?
+models take new data as its input & returns a prediction 
+these are trained on data to understand its patterns
+
+how do we choose a model? what are they?
+OPEN BOX - very transparent
+    instrumental in displaying how features can alter predictions 
+ex ) linear / logistic regression, decision trees
+
+BLACK BOX - hard to interpret
+    complex, but accurate
+    cannot "see inside"
+    essentially less aware of the processes
+ex) random forests, neural networks
+
+choosing factors - 
+    desire for interpretability !!!!
+    complexity of data
+    accuracy requirements
+
+
