@@ -2,8 +2,10 @@
 to be trained, as well as to able to make predictions. These
 functions share the same data, which suggests we should use:
 """
+import sys
 import numpy as np
 import sklearn
+from xgboost import XGBClassifier
 
 # NOTE: We can use a custom classifier, but most classiifers are 
 # implemented well.
@@ -34,6 +36,8 @@ class ReusableClassifier:
             self.model = sklearn.linear_model.LogisticRegression()
         if self.model_type == 'random_forest':
             self.model = sklearn.ensemble.RandomForestClassifier()
+        if self.model_type == 'xgboost': 
+            self.model = XGBClassifier()
 
         # We NEED to scale the data for regression
         # we can use a StandardScaler to make it normal
@@ -81,4 +85,4 @@ class ReusableClassifier:
 
 
 if __name__ == '__main__':
-    rc = ReusableClassifier()
+    rc = ReusableClassifier(model_type = 'xgboost')

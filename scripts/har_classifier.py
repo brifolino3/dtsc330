@@ -38,10 +38,11 @@ labels = df['is_sleep'].astype(int)
 features = df[['rolling_hr', 'rolling_acc_x', 'rolling_acc_y', 'rolling_acc_z']]
 
 
-rc = classifier.ReusableClassifier(model_type='random_forest')
+rc = classifier.ReusableClassifier(model_type = 'xgboost')
 score = rc.assess(features, labels)
 
 print("Model accuracy:", score) # Model accuracy: 0.9914893617021276
+# Model accuray with XGB: 0.9942127659574468
 
 # lets do it again for 250
 
@@ -71,8 +72,9 @@ labels2 = df2['is_sleep'].astype(int)
 features2 = df2[['rolling_hr', 'rolling_acc_x', 'rolling_acc_y', 'rolling_acc_z']]
 
 # run assessment
-rc2 = classifier.ReusableClassifier(model_type = 'random_forest')
+rc2 = classifier.ReusableClassifier(model_type = 'xgboost')
 score2 = rc2.assess(features2, labels2)
 
 print("Model accuracy with larger window:", score2) # Model accuracy with larger window: 0.9880851063829788
+# Model accuracy when switched to XGB: 0.9914893617021276
 
