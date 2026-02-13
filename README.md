@@ -61,7 +61,7 @@ Data vs features
 Training data requirements
 Anything else that's interesting
 
-The accuracy of XGB took the classifier from 0.9914893617021276 to 0.9942127659574468 accuracy.
+The accuracy of XGB took the classifier from 0.9914893617021276 to 0.9942127659574468 accuracy. (the one second window test)
 
 Machine learning is the process of teaching a computer how to perform a task without explicitly coding it. This includes feeding data into an algorithm, which helps it to improve its outcomes, although gradually. 
 
