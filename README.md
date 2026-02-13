@@ -126,3 +126,6 @@ choosing factors -
 HOW IT ALL FITS TOGETHER
 
 Together, these pieces form the machine learning process: data -> features, the algorithms adjust parameters to learn these patterns, leaving a model that is to be tested for its generalization accuracy. The goals & complexity does vary, but machine learning ultimately works by taking a clean set of data with a thoughtful model and using the appropriate evaluation tools to turn information into accurate predictions.  
+
+![black vs. open box](week_4_diagram.png)
+
