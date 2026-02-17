@@ -129,3 +129,19 @@ Together, these pieces form the machine learning process: data -> features, the 
 
 ![black vs. open box](week_4_diagram.png)
 
+
+Homework #5 ( due Feb. 22nd )
+
+Homework 5:
+
+Create entity resolution training data via simulation
+The number of rows is up to you
+As are error styles
+Should include forename, surname
+Can include initials, affiliations
+Add 2-3 sentences to your README.md answering the following WITH NO LLM/GOOGLE HELP:
+What is the simplest way you can think of to limit the phonebook-to-phonebook matching problem such that you do not have to do an all-to-all comparison?
+You can do this. You don't need any information other than thinking of a phone book.
+You have first name, last name, address, and phone number in each.
+You must compare two phone books with the above information.
+You cannot propose a solution that compares every entry in phone book 1 to every entry in phone book 2.

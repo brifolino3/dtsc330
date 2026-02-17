@@ -78,7 +78,7 @@ class Articles():
             auth_row = {'PMID': row['PMID']}
             for el in author.iter():
                 if el.tag in tags:
-                    auth_row[el.tag] = el.text
+                    auth_row[el.tag] = el.text.lower().strip()
             authors.append(auth_row)
         
         return row, authors

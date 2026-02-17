@@ -33,6 +33,7 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
         # make column names lowercase
         # maybe combine for budget duration?
         df = df.rename(columns = mapper)[mapper.values()]
+        grantees['pi_name'] = grantees['pi_name'].str.lower().str.strip()
         return df
     
     def get(self):
