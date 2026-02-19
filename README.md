@@ -145,3 +145,5 @@ You can do this. You don't need any information other than thinking of a phone b
 You have first name, last name, address, and phone number in each.
 You must compare two phone books with the above information.
 You cannot propose a solution that compares every entry in phone book 1 to every entry in phone book 2.
+
+I think the easiest way to try and eliminate this issue is to take the first initial and full last name, and the last two of the zip code. Assuming that most people started their name with the correct letter, and finished their zip-code properly. This should reduce the number of unknown pairs and preserve our true matches. 
