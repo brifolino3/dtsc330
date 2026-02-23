@@ -3,7 +3,15 @@ import pandas as pd
 import numpy as np
 
 """
-
+This is an rough example of training data that can
+be used to understand noisy data and trying to find
+matches between two dataframes with close, but not
+identical data. While only one random issue I could
+think of, this is a typo error called the transpose 
+effect, where two letters are swapped among a word. 
+I had one completely clean dataframe and another with
+ data simulating swapping the second and third letter
+ of each individual's forename.
 """
 
 
@@ -36,4 +44,18 @@ for entry in range(n):
     
 clean_df = pd.DataFrame(clean_data)
 
+# create phonebook B ( noisy )
+
+def swap_third_fourth(name):
+    chars = list(name)
+    chars[2], chars[3], = chars[3], chars[2]
     
+    return "".join(chars)
+
+# assemble noisy dataframe with the function appleid
+noisy_df = clean_df.copy()
+
+noisy_df["forename"] = noisy_df["forename"].apply(swap_third_fourth)
+
+clean_df.to_csv("clean_phonebook", index = False)
+noisy_df.to_csv("noisy_phonebook", index = False)
