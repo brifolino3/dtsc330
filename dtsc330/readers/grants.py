@@ -2,7 +2,8 @@
 # snake_case -- this is what python programmers use
 import pandas as pd
 
-class Grants():  # class names in python are camel case (e.g. GrantReader)
+
+class Grants:  # class names in python are camel case (e.g. GrantReader)
     def __init__(self, path: str):
         """Create and parse a Grants file
 
@@ -10,71 +11,88 @@ class Grants():  # class names in python are camel case (e.g. GrantReader)
             path (str): the location of the file on the disk
         """
         # What is self?
-        # "Self is the specific instance of the object" - Computer Scientist 
+        # "Self is the specific instance of the object" - Computer Scientist
         # Store shared variables in self
         self.path = path
-        self.df = self._parse(path)
+        self.df, self.grantee_df = self._parse(path)
 
     def _parse(self, path: str):
         """Parse a grants file"""
-        df = pd.read_csv(path, compression = 'zip')
-        
+        df = pd.read_csv(path, compression="zip")
+
         mapper = {
-            'APPLICATION_ID': 'application_id',  # _id means an id
-            'BUDGET_START': 'start_at', #  _at means a date
-            'ACTIVITY': 'grant_type',
-            'TOTAL_COST': 'total_cost',
-            'PI_NAMEs': 'pi_names',  # you will notice, homework references this
-            'ORG_NAME': 'organization',
-            'ORG_CITY': 'city',
-            'ORG_STATE': 'state',
-            'ORG_COUNTRY': 'country', 
+            "APPLICATION_ID": "application_id",  # _id means an id
+            "BUDGET_START": "start_at",  #  _at means a date
+            "ACTIVITY": "grant_type",
+            "TOTAL_COST": "total_cost",
+            "PI_NAMEs": "pi_names",  # you will notice, homework references this
+            "ORG_NAME": "organization",
+            "ORG_CITY": "city",
+            "ORG_STATE": "state",
+            "ORG_COUNTRY": "country",
         }
         # make column names lowercase
         # maybe combine for budget duration?
-        df = df.rename(columns = mapper)[mapper.values()]
-        return df
-    
-    def get(self):
+        df = df.rename(columns=mapper)[mapper.values()]
+
+        # Added after homework
+        # ====================
+        df["affiliation"] = df.apply(
+            lambda row: ", ".join(
+                [
+                    v
+                    for v in [
+                        row["organization"],
+                        row["city"],
+                        row["state"],
+                        row["country"],
+                    ]
+                    if not pd.isna(v)
+                ]
+            ),
+            axis=1,
+        ).str.lower()
+
+        grantees = df[["application_id", "pi_names", "affiliation"]].dropna(how="any")
+        grantees["pi_name"] = grantees["pi_names"].str.split(";")
+        grantees = grantees.explode("pi_name").reset_index(drop=True)
+
+        grantees["pi_name"] = (
+            grantees["pi_name"].str.lower().str.replace("(contact)", "").str.strip()
+        )
+        names = grantees["pi_name"].apply(lambda x: x.split(","))
+        grantees["surname"] = names.apply(lambda x: x[0]).str.strip()
+        grantees["forename"] = (
+            names.apply(lambda x: x[1]).str.replace(".", "").str.strip()
+        )
+        grantees["initials"] = grantees["forename"].apply(
+            lambda x: [v[0] for v in x.split(" ") if len(v) > 0]
+        )
+        # ====================
+
+        return (
+            df.drop(columns=["pi_names"]),
+            grantees[["surname", "forename", "initials", "affiliation"]],
+        )
+
+    def get_grants(self):
         """Get parsed grants"""
-        return self.df   
-    
-    # this function will take the PI_NAMEs &
-    # ensure that whenever 2 are listed, both names
-    # ( ID #s ) are acknowledged
-    # this will return df with one row per individual
-    def getGrantees(self):
-        df = self.get().copy()
-        df['pi_names'] = df['pi_names'].str.split(';')
-        df = df.explode('pi_names') # explode "Transform each element of a list-like to a row, replicating index values."
-        df['pi_names'] = df['pi_names'].str.strip()
-        df.reset_index(drop = True)
-        return df
-    
-    # handle the missing dates
-    def fillDates(self):
-        df = self.get().copy()
+        return self.df
 
-        # make sure the format is correct
-        df['start_at'] = pd.to_datetime(df['start_at'], errors = 'coerce') # missing dates .... Na
-
-        # this will ensure that the dates will not go 
-        # across more than one grant
-        df = df.sort_values(['application_id', 'start_at'])
-
-        # fill in the missing dates from the last entry
-        # if this in unavailable use the following
-        df['start_at'] = (
-            df.groupby('application_id')['start_at']
-            .ffill().bfill())
-        
-        return df
-        
+    # Added after homework
+    # ====================
+    def get_grantees(self):
+        """Get parsed grantees"""
+        return self.grantee_df.rename(
+            {
+                "LastName": "surname",
+                "ForeName": "forename",
+                "Initials": "initials",
+                "Affiliation": "affiliation",
+            }
+        )
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     # This is for debugging
-    grants = Grants('data/RePORTER_PRJ_C_FY2025.zip')
-    grantees = grants.getGrantees()
-    print(grantees.head())
+    grants = Grants("data/RePORTER_PRJ_C_FY2025.zip")

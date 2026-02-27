@@ -2,7 +2,7 @@ import pandas as pd
 import fasttext as fst
 import numpy as np
 from dtsc330.readers import articles, grants
-from dtsc330 import classifier
+from dtsc330.classifiers import classifier
 
 """
 authors df - first name, last name, initials, affiliation

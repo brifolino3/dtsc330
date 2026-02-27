@@ -6,7 +6,7 @@ print("sys.path:", sys.path)
 
 import pandas as pd
 
-from dtsc330 import classifier
+from dtsc330.classifiers import classifier
 from dtsc330.readers import har
 
 har_data = har.HAR('data/motion-and-heart-rate-from-a-wrist-worn-wearable-and-labeled-sleep-from-polysomnography-1.0.0', n_people = 1 )
