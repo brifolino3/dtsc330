@@ -110,8 +110,7 @@ class Articles:
             index = False)
 
         # add authors
-        authors_df = self.get_authors().rename(columns=  {
-            "PMID": "pmid"})
+        authors_df = self.get_authors().rename(columns = {"PMID": "pmid"})
 
         authors_df[["pmid", "surname", "forename", "initials", "affiliation"]].to_sql("authors", connection,
             if_exists = "append", index = False)
