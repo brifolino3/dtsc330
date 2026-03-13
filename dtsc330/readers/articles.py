@@ -2,7 +2,7 @@ import gzip
 import xml.etree.ElementTree as ET
 
 import pandas as pd
-
+import sqlalchemy
 
 class Articles:
     def __init__(self, path: str):
@@ -90,6 +90,41 @@ class Articles:
             authors.append(auth_row)
 
         return row, authors
+
+    def to_db(self, path: str = "data/article_grant_db.sqlite"):
+        engine = sqlalchemy.create_engine(f"sqlite:///{path}")
+        connection = engine.connect()
+
+        # insert articles
+        articles_df = self.get_entries().rename(columns=  {
+            "PMID": "pmid",
+            "ArticleTitle": "title",
+            "Year": "pub_year",
+            "Month": "pub_month",
+            "Day": "pub_day"})
+
+        articles_df[["pmid", "title", "pub_year", "pub_month", "pub_day"]].to_sql(
+            "articles",
+            connection,
+            if_exists = "append",
+            index = False)
+
+        # add authors
+        authors_df = self.get_authors().rename(columns=  {
+            "PMID": "pmid"})
+
+        authors_df[["pmid", "surname", "forename", "initials", "affiliation"]].to_sql("authors", connection,
+            if_exists = "append", index = False)
+        
+
+    def _from_db(self, path: str = "data/article_grant_db.sqlite"):
+        engine = sqlalchemy.create_engine(f"sqlite:///{path}")
+        connection = engine.connect()
+
+        articles = pd.read_sql("SELECT * FROM articles", connection)
+        authors = pd.read_sql("SELECT * FROM authors", connection)
+
+        return articles, authors
 
     def get_authors(self):
         """Get parsed grants"""

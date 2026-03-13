@@ -147,3 +147,15 @@ You must compare two phone books with the above information.
 You cannot propose a solution that compares every entry in phone book 1 to every entry in phone book 2.
 
 I think the easiest way to try and eliminate this issue is to take the first initial and full last name, and the last two of the zip code. Assuming that most people started their name with the correct letter, and finished their zip-code properly. This should reduce the number of unknown pairs and preserve our true matches. 
+
+Homework #5 ( due March 8th )
+
+SPRING BREAK
+
+Homework #6 ( due March 15th )
+
+Create a SQLite database for our datasets
+Create tables for Articles and Grants
+Create bridge table
+Add a function to insert data from Articles and Grants into the database via SQLAlchemy and Pandas
+
