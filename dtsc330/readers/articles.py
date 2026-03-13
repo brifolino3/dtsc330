@@ -92,38 +92,23 @@ class Articles:
         return row, authors
 
     def to_db(self, path: str = "data/article_grant_db.sqlite"):
-        engine = sqlalchemy.create_engine(f"sqlite:///{path}")
-        connection = engine.connect()
+            """Send the read-in data to the database
 
-        # insert articles
-        articles_df = self.get_entries().rename(columns=  {
-            "PMID": "pmid",
-            "ArticleTitle": "title",
-            "Year": "pub_year",
-            "Month": "pub_month",
-            "Day": "pub_day"})
+                Args:
+                path (str, optional): Location of sqlite file.
+                    Defaults to 'data/article_grant_db.sqlite'.
+            """
+            # Define the connection
+            engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+            connection = engine.connect()
 
-        articles_df[["pmid", "title", "pub_year", "pub_month", "pub_day"]].to_sql(
-            "articles",
-            connection,
-            if_exists = "append",
-            index = False)
+            # Always append. Deletion should be more thoughtful
+            # NEVER alter raw data.
+            # Pandas has its own index. That is different from the primary key.
+            # If you want, you can use the primary key as an index. I don't.
+            # It's complicated.
 
-        # add authors
-        authors_df = self.get_authors().rename(columns = {"PMID": "pmid"})
-
-        authors_df[["pmid", "surname", "forename", "initials", "affiliation"]].to_sql("authors", connection,
-            if_exists = "append", index = False)
-        
-
-    def _from_db(self, path: str = "data/article_grant_db.sqlite"):
-        engine = sqlalchemy.create_engine(f"sqlite:///{path}")
-        connection = engine.connect()
-
-        articles = pd.read_sql("SELECT * FROM articles", connection)
-        authors = pd.read_sql("SELECT * FROM authors", connection)
-
-        return articles, authors
+            self.df[["ArticleTitle", 'PMID']].rename(columns = {'ArticleTitle' : 'title', 'PMID' : 'pmid'}).to_sql("articles", connection, if_exists = "append", index = False)
 
     def get_authors(self):
         """Get parsed grants"""
