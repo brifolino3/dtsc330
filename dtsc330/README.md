@@ -159,3 +159,4 @@ Create tables for Articles and Grants
 Create bridge table
 Add a function to insert data from Articles and Grants into the database via SQLAlchemy and Pandas
 
+Homework #7 ( due March 22nd )
