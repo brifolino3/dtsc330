@@ -99,7 +99,7 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
         self.df[["application_id", "start_at", "grant_type", "total_cost"]].to_sql(
             "grants", connection, if_exists="append", index=False
         )
-
+        
     def _from_db(self):
         """Load the data from the database"""
         engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
