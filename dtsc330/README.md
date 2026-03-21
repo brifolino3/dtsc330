@@ -148,15 +148,41 @@ You cannot propose a solution that compares every entry in phone book 1 to every
 
 I think the easiest way to try and eliminate this issue is to take the first initial and full last name, and the last two of the zip code. Assuming that most people started their name with the correct letter, and finished their zip-code properly. This should reduce the number of unknown pairs and preserve our true matches. 
 
-Homework #5 ( due March 8th )
+Homework #6 ( due March 8th )
 
 SPRING BREAK
 
-Homework #6 ( due March 15th )
+Homework #7 ( due March 15th )
 
 Create a SQLite database for our datasets
 Create tables for Articles and Grants
 Create bridge table
 Add a function to insert data from Articles and Grants into the database via SQLAlchemy and Pandas
 
-Homework #7 ( due March 22nd )
+Homework #8 ( due March 22nd )
+
+You may not ask any questions of an LLM. You may ask as many questions as you want from me. You may ask some questions of your peers, but if any of them are "what's the answer for..." that's not allowed.
+This is another homework to build intuition. We have been talking about entity resolution. As of this week, we have covered everything that makes up an entity resolution pipeline.
+What is entity resolution?
+Relate every single week's work up to now to entity resolution. The first few weeks will be the hardest, because they are more abstractly related.
+You should be able to relate the human activity recognition dataset to entity resolution. Not directly, but rather you should understand that we were learning a core conept about machine learning. What was it?
+The output should be in the form of a markdown (.md) file. Graphics are optional.
+The output should be either paragraphs or a bulleted list.
+If I believe that you've used an LLM to write this, 1. you are wasting an opportunity and 2. I will ask you to explain entity resolution directly to me in greater depth. If you cannot answer to my satisfaction, the homework will be marked uncompleted and will directly affect your grade.
+
+entity resolution, stated simply, is the act of connecting information within datasets or between more than one dataset using machine learning. machine learning, as it relates to entity resolution, learns by building pattern recognition. this helps it to be more susceptible to similar, but not exact entries. without machine learning, it would be common to match up pairs by hand, or accept fuzzy / messy matches that may not even be true matches. 
+
+when we handled missing data, entity resolution can play its part by leveraging the other information we had to fill in the missing dates. whether it can pull from prior entries or the following one, it is working by using what it already has to learn how to continue to fill in where it is missing in the future. another step along the way was the explode (pandas) function which helped to handle entries with more than one name per entry (one-to-many) relationships. this ensures that making comparisons is simpler. 
+
+when creating the best possible sleep classifier from acceleration / heart rate, it is easy to relate this task to entity resolution. these both required transforming noisy raw data into meaningful features / insights. in this instance, the sleep classifier helped to reshape acceleration into something that could classify sleep quality. 
+
+when we applied xgboost to our classifiers, mine personally did better than without. xgboost ties into entity resolution because it trains itself through adaptating to previous inputs. 
+
+TRAINING DATA
+
+SQLITE DATABASE
+
+
+
+
+
