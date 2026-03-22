@@ -178,9 +178,9 @@ when creating the best possible sleep classifier from acceleration / heart rate,
 
 when we applied xgboost to our classifiers, mine personally did better than without. xgboost ties into entity resolution because it trains itself through adaptating to previous inputs. 
 
-TRAINING DATA
+training data that was created in week 5 for this is instrumental in defining entity resolution as it all ties into using machine learning to create matches. there are many different things that could have been slightly different per "almost match" in this specific instance. the training data gives an example of just one way these error types can look. 
 
-SQLITE DATABASE
+finally, this past week we used SQLite to create a database to hold our articles and grants data. the database itself was helpful to store raw data where it can be standardized and manipulated. having everything in the same place helps to let us identify and merge duplicate records. 
 
 
 
