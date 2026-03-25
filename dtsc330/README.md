@@ -5,6 +5,7 @@ semester @ Duquesne University.
 Homework #1
 Set up GitHub & the first repository!
 
+
 Homework #2 (due Feb. 1st)
 
 How do you fill in the missing dates from the grants data?
@@ -182,7 +183,17 @@ training data that was created in week 5 for this is instrumental in defining en
 
 finally, this past week we used SQLite to create a database to hold our articles and grants data. the database itself was helpful to store raw data where it can be standardized and manipulated. having everything in the same place helps to let us identify and merge duplicate records. 
 
+Homework #9 (due March 30) 
 
+Fix up your entity resolution repository
+If it is already perfect, great
+This repository CANNOT mention "homework", "class", or any similar wording
+The most recent commit of the repository also cannot mention these terms (really, no commit should but I don't want to make you redo it)
+The repository must have the complete pipeline that we have worked through
+Your description of entity resolution should live here.
+REMEMBER: This is your opportunity to improve your chances of getting a job. Don't do this halfway
+Create a neural network via https://teachablemachine.withgoogle.com/
+In your class repository, add one paragraph discussing the training data, the quality of the output, and why you think that a classifier like this can perform well with only a small number of training examples
 
 
 
