@@ -198,4 +198,14 @@ In your class repository, add one paragraph discussing the training data, the qu
 
 This was actually super cool, for starters. The training data I inputed were two classes- one with poses on the camera and the other that were just hand motions. The output was super strong, if I had my hand up close into the frame it would be almost 100% certain on hand figures. With the poses, it would be at 100% if I even stepped into the camera. Just to make sure it wasn't just picking up the bright color of my hoodie, I lifted that into the frame with my hand, and saw no change. I think that a classifier like this trains so well, because it is likely a pre-trained model, that is used to the visual features like hand motions / bodial poses. 
 
+Homework 10:
+
+Create your own competitor to tensorflow
+Watch this movie by Joel Grus, the guy who literally wrote the book on Data Science: https://www.youtube.com/watch?v=o64FV-ez6Gw
+As you go, implement his library
+You MUST have docstrings
+This should be a new repository
+Your training/testing data must differ from his in at least one way
+
+
 
