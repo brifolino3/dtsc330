@@ -207,5 +207,8 @@ You MUST have docstrings
 This should be a new repository
 Your training/testing data must differ from his in at least one way
 
+severely lost at whatever this is, honestly... join call at some point this week
+copied code and still was not confident in topic- also couldnt resolve an indentation error. 
+
 
 
