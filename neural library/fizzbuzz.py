@@ -11,6 +11,7 @@ from train import train
 from nn import NeuralNet
 from layers import Linear, Tanh
 from optim import SGD
+from tensor import Tensor
 
 def fizz_buzz_encode(x: int) -> List[int]:
     if x % 15 == 0:
@@ -32,7 +33,7 @@ inputs = np.array([
     for x in range(101, 1024)
 ])
 
-targets = np.arrary([
+targets = np.array([
     fizz_buzz_encode(x)
     for x in range(101, 1024)
 ])
@@ -43,12 +44,12 @@ net = NeuralNet([
     Linear(input_size = 50, output_size = 4)
 ])
 
-train(net, inputs, num_epochs = 5000, optimizer = SGD(lr = 0.001))
+train(net, inputs, targets, num_epochs = 5000, optimizer = SGD(lr = 0.001))
 
 for x in range(1, 101):
     predicted = net.forward(binary_encode(x))
     predicted_idx = np.argmax(predicted)
-    actual_idx = np.argmax(fizz_buzz_encode)
+    actual_idx = np.argmax(fizz_buzz_encode(x))
     labels = [str(x), "fizz", "buzz", "fizzbuzz"]
     print(x, labels[predicted_idx], labels[actual_idx])
 
