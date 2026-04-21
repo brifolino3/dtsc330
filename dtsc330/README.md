@@ -210,5 +210,13 @@ Your training/testing data must differ from his in at least one way
 severely lost at whatever this is, honestly... join call at some point this week
 copied code and still was not confident in topic- also couldnt resolve an indentation error. 
 
+Homework 13: Solve Search
+
+You have experience in simulating data.
+USE AI IF YOU'D LIKE: Can you use Tensorflow to create a neural network that fixes spelling? Hint: I may ask you how this works during the final. If you use AI, you have to go back and understand.
+This is a classic example of a seq2seq model. Originally, seq2seq used recurrent neural networks (RNNs), but has been updated to use transformers.
+We're going to have to push the bounds of our knowledge of transformers. In this case, we will need to use cross attention as well as self attention. Remember, self attention allows us to learn connections within a sentence, paragraph, or document. Cross-attention allows us to learn the connections between two sequences, often times between two languages (or misspelled text and its associated corrected text).
+https://jalammar.github.io/illustrated-transformer/
+
 
 
