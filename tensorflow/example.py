@@ -1,4 +1,4 @@
-from dtsc330.tensorflow import seq2seq_transformer
+from tensorflow import seq2seq_transformer
 
 if __name__ == "__main__":
     # training data

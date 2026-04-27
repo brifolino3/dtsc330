@@ -2,11 +2,12 @@
 This module defines positional encoding for the Transformer.
 """
 
+import keras
 import tensorflow as tf
 import numpy as np
 
 
-class TokenPositionEmbedding(tf.keras.layers.Layer):
+class TokenPositionEmbedding(keras.layers.Layer):
     def __init__(self, max_len, d_model):
         super().__init__()
         self.pos_encoding = self._build_encoding(max_len, d_model)

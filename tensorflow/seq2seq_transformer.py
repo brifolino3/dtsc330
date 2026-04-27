@@ -1,5 +1,5 @@
 import tensorflow as tf
-from dtsc330.tensorflow.token_position_embedding import TokenPositionEmbedding
+from tensorflow.token_position_embedding import TokenPositionEmbedding
 from transformer_encoder_block import TransformerEncoderBlock
 from transformer_decoder_block import TransformerDecoderBlock
 
