@@ -1,13 +1,3 @@
-This will contain my work for DTSC 330 -
-Big Data & Databases during the Spring 2026
-semester @ Duquesne University. 
-
-Homework #1
-Set up GitHub & the first repository!
-
-
-Homework #2 (due Feb. 1st)
-
 How do you fill in the missing dates from the grants data?
 
 You can use the last available date or the date of the proceeding
@@ -23,9 +13,6 @@ a second one in one element ) to the following line.
 
 The dates for Articles are problematic. Can you fix them?
 
-I am super unfamiliar with this file type which made this more difficult for me to navigate this question.
-
-Homework #3 ( due Feb. 8th )
 
 """Create the best possible classifier of sleep from acceleration and heart rate
 If we have not finished the associated readers by the end of class, you will have to complete these readers yourself
@@ -39,8 +26,6 @@ As before, please add a short description to your README that returns the perfor
 This loads wrist-worn heart rate & accelerometer data
 & prepares it for the task of sleep classification. To find the rolling means for this set, it first converts the raw data into its absolute values to avoid the effects of direction. The rolling means are then computed over their respective fixed windows to approximate the behavior over time. It is downsized to reduce the redundancy, keeping about one observation per second. The sleep labels are separated from its features for the random forest classifier to learn its patterns to distinguish one's
 sleep from wakefulness. 
-
-Homework #4 ( due Feb. 15th )
 
 Add XGBoost to your reusable classifier
 For those who did not structure the assessment to be between people (instead using a simple train_test_split), refactor your code to be between people. You can reference my code.
@@ -130,11 +115,6 @@ Together, these pieces form the machine learning process: data -> features, the 
 
 ![black vs. open box](week_4_diagram.png)
 
-
-Homework #5 ( due Feb. 22nd )
-
-Homework 5:
-
 Create entity resolution training data via simulation
 The number of rows is up to you
 As are error styles
@@ -149,27 +129,19 @@ You cannot propose a solution that compares every entry in phone book 1 to every
 
 I think the easiest way to try and eliminate this issue is to take the first initial and full last name, and the last two of the zip code. Assuming that most people started their name with the correct letter, and finished their zip-code properly. This should reduce the number of unknown pairs and preserve our true matches. 
 
-Homework #6 ( due March 8th )
-
-SPRING BREAK
-
-Homework #7 ( due March 15th )
-
 Create a SQLite database for our datasets
 Create tables for Articles and Grants
 Create bridge table
 Add a function to insert data from Articles and Grants into the database via SQLAlchemy and Pandas
 
-Homework #8 ( due March 22nd )
-
 You may not ask any questions of an LLM. You may ask as many questions as you want from me. You may ask some questions of your peers, but if any of them are "what's the answer for..." that's not allowed.
-This is another homework to build intuition. We have been talking about entity resolution. As of this week, we have covered everything that makes up an entity resolution pipeline.
+This is another task to build intuition. We have been talking about entity resolution. As of this week, we have covered everything that makes up an entity resolution pipeline.
 What is entity resolution?
 Relate every single week's work up to now to entity resolution. The first few weeks will be the hardest, because they are more abstractly related.
 You should be able to relate the human activity recognition dataset to entity resolution. Not directly, but rather you should understand that we were learning a core conept about machine learning. What was it?
 The output should be in the form of a markdown (.md) file. Graphics are optional.
 The output should be either paragraphs or a bulleted list.
-If I believe that you've used an LLM to write this, 1. you are wasting an opportunity and 2. I will ask you to explain entity resolution directly to me in greater depth. If you cannot answer to my satisfaction, the homework will be marked uncompleted and will directly affect your grade.
+If I believe that you've used an LLM to write this, 1. you are wasting an opportunity and 2. I will ask you to explain entity resolution directly to me in greater depth. If you cannot answer to my satisfaction, the task will be marked uncompleted and will directly affect your grade.
 
 entity resolution, stated simply, is the act of connecting information within datasets or between more than one dataset using machine learning. machine learning, as it relates to entity resolution, learns by building pattern recognition. this helps it to be more susceptible to similar, but not exact entries. without machine learning, it would be common to match up pairs by hand, or accept fuzzy / messy matches that may not even be true matches. 
 
@@ -183,11 +155,8 @@ training data that was created in week 5 for this is instrumental in defining en
 
 finally, this past week we used SQLite to create a database to hold our articles and grants data. the database itself was helpful to store raw data where it can be standardized and manipulated. having everything in the same place helps to let us identify and merge duplicate records. 
 
-Homework #9 (due March 30) 
-
 Fix up your entity resolution repository
 If it is already perfect, great
-This repository CANNOT mention "homework", "class", or any similar wording
 The most recent commit of the repository also cannot mention these terms (really, no commit should but I don't want to make you redo it)
 The repository must have the complete pipeline that we have worked through
 Your description of entity resolution should live here.
@@ -198,19 +167,12 @@ In your class repository, add one paragraph discussing the training data, the qu
 
 This was actually super cool, for starters. The training data I inputed were two classes- one with poses on the camera and the other that were just hand motions. The output was super strong, if I had my hand up close into the frame it would be almost 100% certain on hand figures. With the poses, it would be at 100% if I even stepped into the camera. Just to make sure it wasn't just picking up the bright color of my hoodie, I lifted that into the frame with my hand, and saw no change. I think that a classifier like this trains so well, because it is likely a pre-trained model, that is used to the visual features like hand motions / bodial poses. 
 
-Homework 10:
-
 Create your own competitor to tensorflow
 Watch this movie by Joel Grus, the guy who literally wrote the book on Data Science: https://www.youtube.com/watch?v=o64FV-ez6Gw
 As you go, implement his library
 You MUST have docstrings
 This should be a new repository
 Your training/testing data must differ from his in at least one way
-
-severely lost at whatever this is, honestly... join call at some point this week
-copied code and still was not confident in topic- also couldnt resolve an indentation error. 
-
-Homework 13: Solve Search
 
 You have experience in simulating data.
 USE AI IF YOU'D LIKE: Can you use Tensorflow to create a neural network that fixes spelling? Hint: I may ask you how this works during the final. If you use AI, you have to go back and understand.
